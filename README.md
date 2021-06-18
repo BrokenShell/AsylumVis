@@ -8,3 +8,5 @@
 - HTML & CSS
 - Plotly
 - Pandas
+
+![Screen Shot](readme-assets/Screen-Shot.png)
