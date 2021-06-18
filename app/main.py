@@ -5,7 +5,7 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 
-from app.db_ops import outcome_counts, get_cases_df
+from app.db_ops import get_cases_df
 
 APP = Flask(__name__)
 db_url = os.getenv("DB_URL")
