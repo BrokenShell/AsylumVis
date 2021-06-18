@@ -43,9 +43,9 @@ def home():
 def graphs():
     columns = [
         'gender', 'credible', 'outcome', 'judge_id', 'filed_in_one_year',
-        'type_of_violence', 'indigenous_group', 'applicant_language',
-        'country_of_origin', 'case_origin_state', 'case_origin_city',
-        'protected_grounds',
+        'applicant_language', 'country_of_origin', 'case_origin_state',
+        'case_origin_city', 'protected_grounds', 'type_of_violence',
+        'indigenous_group',
     ]
     if request.values:
         col_1, col_2, appellate, is_stack, *_ = request.values.values()

@@ -1,10 +1,6 @@
 {% extends "layout.html" %}
 {% block content %}
 <h1 class="heading">Human Rights First: Asylum Visualizer</h1>
-<div id= "chart"></div>
-<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-<script type="text/javascript">
-  var graphs = {{ graph_json | safe }};
-  Plotly.plot('chart', graphs, {});
-</script>
+<p>This is an example site to showcase the techniques I use to parameterize
+plotly, pandas and SQL queries to create interactive graphs. Enjoy!</p>
 {% endblock %}
