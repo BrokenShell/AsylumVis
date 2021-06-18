@@ -1,0 +1,10 @@
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+
+# Private Project Files
+.env
+/venv/
+scratch.py
+schema.png

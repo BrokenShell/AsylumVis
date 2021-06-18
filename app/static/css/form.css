@@ -1,0 +1,43 @@
+#form {
+    width: 860px;
+    padding: 10px 10px 10px 45px;
+    margin-bottom: 60px;
+}
+#form p {
+    max-width: 400px;
+    margin: 10px 60px;
+    min-width: 400px;
+}
+#form span {
+    margin-right: 20px;
+}
+#form input {
+    text-align: center;
+}
+#form button#submit {
+    margin-left: 20px;
+}
+table {
+    width: 800px;
+    color: #aaaaaa;
+    margin: 0 100px;
+}
+table th {
+    text-align: left;
+    min-width: 40px;
+}
+table td {
+    max-width: 700px;
+    padding-right: 20px;
+    border-bottom: 1px solid #666666;
+}
+table thead {
+    border-bottom: 1px solid #666666;
+}
+table tbody tr:nth-of-type(1) {
+    background-color: #333;
+}
+#chart {
+    margin-top: -60px;
+    margin-bottom: -40px;
+}
