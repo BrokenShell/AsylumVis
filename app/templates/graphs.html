@@ -1,9 +1,9 @@
 {% extends "layout.html" %}
 {% block content %}
 
-<h1 class="heading">Human Rights First: Asylum Visualizer</h1>
+<h1 class="heading">A Human Rights First Project</h1>
+<h4>Cross Tab Bar Chart</h4>
 
-<h4>Cross Tab Selector</h4>
 <form id="form" method="post" action="{{ url_for('graphs') }}">
     <p><span>Column 1: </span><select name="col_1" id="col_1">
         {% for op in options %}
@@ -42,7 +42,6 @@
 </form>
 
 <div id= "chart"></div>
-
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <script type="text/javascript">
   var graphs = {{ graph_json | safe }};

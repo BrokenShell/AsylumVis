@@ -12,33 +12,10 @@ db_url = os.getenv("DB_URL")
 
 
 @APP.route("/")
-@APP.route("/home/")
 def home():
-    query = outcome_counts(2)
-    labels = list(query.keys())
-    values = list(query.values())
-    data = [go.Pie(
-        labels=labels,
-        values=values,
-        textinfo="label+percent",
-        showlegend=False,
-    )]
-    layout = go.Layout(
-        template="plotly_dark",
-        paper_bgcolor="rgba(0,0,0,0)",
-        plot_bgcolor="rgba(0,0,0,0)",
-        colorway=px.colors.qualitative.Antique,
-        height=600,
-        width=750,
-    )
-    fig = go.Figure(data=data, layout=layout)
-    return render_template(
-        "home.html",
-        graph_json=fig.to_json(),
-    )
+    return render_template("home.html")
 
 
-@APP.route("/")
 @APP.route("/graphs/", methods=["GET", "POST"])
 def graphs():
     columns = [
