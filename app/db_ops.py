@@ -37,13 +37,15 @@ def outcome_counts(judge_id: int):
     GROUP BY outcome;""")}
 
 
-def get_cases_df(is_appellate: Union[bool, None] = None) -> pd.DataFrame:
+def get_cases_df(case_type: str) -> pd.DataFrame:
+    app_lookup = {
+        "Appellate": "SELECT * FROM cases WHERE appellate = true",
+        "Initial": "SELECT * FROM cases WHERE appellate = false",
+        "All Cases": "SELECT * FROM cases",
+    }
     conn = psycopg2.connect(db_url)
     curs = conn.cursor()
-    if is_appellate is not None:
-        curs.execute(f"""SELECT * FROM cases WHERE appellate = {is_appellate}""")
-    else:
-        curs.execute(f"""SELECT * FROM cases""")
+    curs.execute(app_lookup[case_type])
     cols = [k[0] for k in curs.description]
     rows = curs.fetchall()
     df = pd.DataFrame(rows, columns=cols)

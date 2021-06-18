@@ -16,8 +16,8 @@ def home():
     return render_template("home.html")
 
 
-@APP.route("/graphs/", methods=["GET", "POST"])
-def graphs():
+@APP.route("/graph/", methods=["GET", "POST"])
+def graph():
     columns = [
         'gender', 'credible', 'outcome', 'judge_id', 'filed_in_one_year',
         'applicant_language', 'country_of_origin', 'case_origin_state',
@@ -25,13 +25,8 @@ def graphs():
         'indigenous_group',
     ]
     if request.values:
-        col_1, col_2, appellate, is_stack, *_ = request.values.values()
-        app_lookup = {
-            "Appellate": True,
-            "Initial": False,
-            "All Cases": None,
-        }
-        df = get_cases_df(is_appellate=app_lookup[appellate])
+        col_1, col_2, case_type, is_stack, *_ = request.values.values()
+        df = get_cases_df(case_type)
         df_cross = pd.crosstab(df[col_1], df[col_2])
         col_1_name = col_1.title().replace('_', ' ')
         col_2_name = col_2.title().replace('_', ' ')
@@ -53,17 +48,17 @@ def graphs():
         )
         figure = go.Figure(data, layout)
         return render_template(
-            "graphs.html",
+            "graph.html",
             options=columns,
             graph_json=figure.to_json(),
             selector_1=col_1,
             selector_2=col_2,
-            appellate=appellate,
+            case_type=case_type,
             checked="checked" if is_stack else "",
         )
     else:
         return render_template(
-            "graphs.html",
+            "graph.html",
             options=columns,
             selector_1="gender",
             selector_2="outcome",

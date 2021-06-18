@@ -1,6 +1,38 @@
 {% extends "layout.html" %}
 {% block content %}
 <h1 class="heading">A Human Rights First Project</h1>
-<p>This is an example site to showcase the techniques I use to parameterize
-plotly, pandas and SQL queries to create interactive graphs. Enjoy!</p>
+<blockquote>
+<p>This is an example Flask app created to showcase the techniques used to
+parameterize plotly, pandas and SQL to create interactive graphs.</p>
+<br>
+<p>Enjoy, and be sure to checkout the code =>
+<a target="_blank" href="https://github.com/BrokenShell/AsylumVis">AsylumVis GitHub Repo</a></p>
+<br>
+<p>WARNING! Be careful when parameterizing SQL! Don't open your data to SQL
+injection attacks by blindly executing raw user input. If this code is to be
+put in production you should take extra steps to ensure only clean SQL commands
+are executed.</p>
+</blockquote>
+<br>
+
+<h3>Tech Stack</h3>
+<ul>
+    <li>Logic: Python3.8</li>
+    <li>Framework: Flask</li>
+    <li>Templates: Jinja2</li>
+    <li>Layouts: HTML5</li>
+    <li>Styles: CSS 3</li>
+    <li>Data: Pandas</li>
+    <li>Graphs: Plotly</li>
+    <li>Database: AWS RDS PostgreSQL</li>
+    <li>Hosting: AWS Elastic Beanstalk</li>
+</ul>
+
+<h3>Developer Team</h3>
+<ul>
+    <li>Team Lead: Robert Sharp</li>
+    <li>Visual Design: April</li>
+    <li>Architecture: Zack</li>
+    <li>Data Science: Eugene</li>
+</ul>
 {% endblock %}
