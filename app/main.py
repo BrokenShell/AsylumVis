@@ -49,6 +49,7 @@ def graphs():
             height=600,
             width=800,
             barmode="stack" if is_stack else "group",
+            yaxis={"tickformat": ","}
         )
         figure = go.Figure(data, layout)
         return render_template(
