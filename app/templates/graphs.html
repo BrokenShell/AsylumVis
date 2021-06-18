@@ -3,9 +3,9 @@
 
 <h1 class="heading">Human Rights First: Asylum Visualizer</h1>
 
-<h4>Cross Tabs Selector</h4>
+<h4>Cross Tab Selector</h4>
 <form id="form" method="post" action="{{ url_for('graphs') }}">
-    <p><span>Column 1:</span> <select name="col_1" id="col_1">
+    <p><span>Column 1: </span><select name="col_1" id="col_1">
         {% for op in options %}
             {% if op == selector_1 %}
             <option selected="selected">{{ op }}</option>
@@ -14,7 +14,7 @@
         {% endif %}
         {% endfor %}
     </select></p>
-    <p><span>Column 2:</span> <select name="col_2" id="col_2">
+    <p><span>Column 2: </span><select name="col_2" id="col_2">
         {% for op in options %}
             {% if op == selector_2 %}
             <option selected="selected">{{ op }}</option>
@@ -23,10 +23,19 @@
         {% endif %}
         {% endfor %}
     </select></p>
+    <p><span>Initial/Appellate: </span><select name="appellate" id="appellate">
+        {% for op in ['Initial', 'Appellate', 'All Cases'] %}
+            {% if op == appellate %}
+                <option selected="selected">{{ op }}</option>
+            {% else %}
+                <option>{{ op }}</option>
+            {% endif %}
+        {% endfor %}
+    </select></p>
     {% if checked %}
-    <p><span>Stack Bar:</span> <input checked type="checkbox" id="is-stack" name="is-stack" value="is-stack"></p>
+        <p><span>Stack Bar: </span><input checked type="checkbox" id="is-stack" name="is-stack" value="is-stack"></p>
     {% else %}
-    <p><span>Stack Bar:</span> <input type="checkbox" id="is-stack" name="is-stack" value="is-stack"></p>
+        <p><span>Stack Bar: </span><input type="checkbox" id="is-stack" name="is-stack" value="is-stack"></p>
     {% endif %}
     <p><button type="submit" id="submit" name="submit">Submit</button></p>
     <span class="clear"></span>

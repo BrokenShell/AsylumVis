@@ -1,4 +1,5 @@
 import os
+from typing import Union
 
 import pandas as pd
 import psycopg2
@@ -36,10 +37,13 @@ def outcome_counts(judge_id: int):
     GROUP BY outcome;""")}
 
 
-def get_cases_df(is_appellate: bool) -> pd.DataFrame:
+def get_cases_df(is_appellate: Union[bool, None] = None) -> pd.DataFrame:
     conn = psycopg2.connect(db_url)
     curs = conn.cursor()
-    curs.execute(f"""SELECT * FROM cases WHERE appellate = {is_appellate}""")
+    if is_appellate is not None:
+        curs.execute(f"""SELECT * FROM cases WHERE appellate = {is_appellate}""")
+    else:
+        curs.execute(f"""SELECT * FROM cases""")
     cols = [k[0] for k in curs.description]
     rows = curs.fetchall()
     df = pd.DataFrame(rows, columns=cols)

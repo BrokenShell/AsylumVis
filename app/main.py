@@ -41,13 +41,19 @@ def home():
 @APP.route("/")
 @APP.route("/graphs/", methods=["GET", "POST"])
 def graphs():
-    df = get_cases_df(is_appellate=False)
     columns = ['gender', 'outcome', 'judge_id', 'filed_in_one_year']
     if request.values:
-        col_1, col_2, is_stack, *_ = request.values.values()
-        # bars = ["stack", "group", "overlay", "relative"]
+        col_1, col_2, appellate, is_stack, *_ = request.values.values()
+        app_lookup = {
+            "Appellate": True,
+            "Initial": False,
+            "All Cases": None,
+        }
+        df = get_cases_df(is_appellate=app_lookup[appellate])
         df_cross = pd.crosstab(df[col_1], df[col_2])
-        title = f"{col_2.title().replace('_', ' ')} by {col_1.title().replace('_', ' ')}"
+        col_1_name = col_1.title().replace('_', ' ')
+        col_2_name = col_2.title().replace('_', ' ')
+        title = f"{col_2_name} by {col_1_name}"
         data = [
             go.Bar(name=col, x=df_cross.index, y=df_cross[col])
             for col in df_cross.columns
@@ -59,9 +65,9 @@ def graphs():
             plot_bgcolor="rgba(0,0,0,0)",
             colorway=px.colors.qualitative.Antique,
             height=600,
-            width=750,
+            width=800,
             barmode="stack" if is_stack else "group",
-            yaxis={"tickformat": ",d"},
+            yaxis={"tickformat": ""},
         )
         figure = go.Figure(data, layout)
         return render_template(
@@ -70,6 +76,7 @@ def graphs():
             graph_json=figure.to_json(),
             selector_1=col_1,
             selector_2=col_2,
+            appellate=appellate,
             checked="checked" if is_stack else "",
         )
     else:
