@@ -41,7 +41,12 @@ def home():
 @APP.route("/")
 @APP.route("/graphs/", methods=["GET", "POST"])
 def graphs():
-    columns = ['gender', 'outcome', 'judge_id', 'filed_in_one_year']
+    columns = [
+        'gender', 'credible', 'outcome', 'judge_id', 'filed_in_one_year',
+        'type_of_violence', 'indigenous_group', 'applicant_language',
+        'country_of_origin', 'case_origin_state', 'case_origin_city',
+        'protected_grounds',
+    ]
     if request.values:
         col_1, col_2, appellate, is_stack, *_ = request.values.values()
         app_lookup = {
