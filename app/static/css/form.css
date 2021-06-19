@@ -2,9 +2,9 @@
   color-scheme: dark;
 }
 #form {
-    width: 400px;
-    margin: 0px 0px 0 60px;
-    padding: 30px 400px 40px 40px;
+    width: 410px;
+    margin: 0px 30px 0 90px;
+    padding: 30px 330px 30px 40px;
     border-left: 1px solid #000;
     border-right: 1px solid #000;
     border-bottom: 1px solid #000;
@@ -16,8 +16,10 @@
 }
 #form input {
     margin: 0 0 0 10px;
+    cursor: pointer;
 }
 #form select {
+    cursor: pointer;
 }
 #form h4 {
     margin: 10px 0 10px;
@@ -32,6 +34,7 @@
     float: right;
 }
 #form button#submit {
-    padding: 4px 28px;
+    padding: 1px 28px;
     margin-top: 5px;
+    cursor: pointer;
 }

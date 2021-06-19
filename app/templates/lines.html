@@ -12,7 +12,7 @@
     line segments. A line chart is often used to visualize a trend in data over
     intervals of time – a time series – thus the line is often drawn
     chronologically. In these cases they are known as run charts.</p>
-    <cite><a href="https://en.wikipedia.org/wiki/Line_chart">Wikipedia: Line chart</a></cite>
+    <cite><a target="_blank" href="https://en.wikipedia.org/wiki/Line_chart">Wikipedia: Line chart</a></cite>
 </blockquote>
 
 <form id="form" method="post" action="{{ url_for('lines') }}">
@@ -35,7 +35,6 @@
             {% endif %}
         {% endfor %}
     </select><span class="notes">SQL Query Filter</span></span></p>
-
     <p><span>Line Width:</span><span class="right-selector"><select name="line_width">
         {% for op in ['Thin', 'Medium', 'Thick'] %}
             {% if op == line_width %}
@@ -45,9 +44,9 @@
             {% endif %}
         {% endfor %}
     </select><span class="notes">Plotly Parameter</span></span></p>
-
-    <p><button type="submit" id="submit" name="submit">Generate Line Chart From Database</button></p>
-    <span class="clear"></span>
+    <p><span>Live Database: </span>
+    <button type="submit" id="submit" name="submit">Generate Chart</button>
+    <span class="notes">AWS PostgreSQL</span></p>
 </form>
 
 <div id= "chart"></div>

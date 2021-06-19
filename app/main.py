@@ -50,7 +50,7 @@ def bars():
             plot_bgcolor="rgba(0,0,0,0)",
             colorway=px.colors.qualitative.Antique,
             height=600,
-            width=840,
+            width=820,
             barmode=bar_lookup[bar_type],
             yaxis={"tickformat": ",", "title": "People"},
             xaxis={'title': col_1_name}
@@ -108,7 +108,7 @@ def lines():
             plot_bgcolor="rgba(0,0,0,0)",
             colorway=px.colors.qualitative.Antique,
             height=600,
-            width=840,
+            width=820,
             yaxis={"tickformat": ",", "title": "Cumulative Number of People"},
         )
         figure = go.Figure(data, layout)
@@ -156,7 +156,7 @@ def pies():
             plot_bgcolor="rgba(0,0,0,0)",
             colorway=px.colors.qualitative.Antique,
             height=640,
-            width=840,
+            width=820,
         )
         figure = go.Figure(data, layout)
         figure.update_traces(
