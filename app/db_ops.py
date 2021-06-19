@@ -39,9 +39,9 @@ def outcome_counts(judge_id: int):
 
 def get_cases_df(case_type: str) -> pd.DataFrame:
     app_lookup = {
-        "Appellate": "SELECT * FROM cases WHERE appellate = true",
-        "Initial": "SELECT * FROM cases WHERE appellate = false",
-        "All Cases": "SELECT * FROM cases",
+        "Initial Hearings": "SELECT * FROM cases WHERE appellate = false",
+        "Appellate Hearings": "SELECT * FROM cases WHERE appellate = true",
+        "All Hearings": "SELECT * FROM cases",
     }
     conn = psycopg2.connect(db_url)
     curs = conn.cursor()

@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h1 class="heading">Pie Chart</h1>
+
+<form id="form" method="post" action="{{ url_for('pies') }}">
+    <h4>Chart Selectors</h4>
+    <p><span>Feature:</span><span class="right-selector"><select name="col">
+        {% for op in options %}
+            {% if op == selector %}
+            <option selected="selected">{{ op }}</option>
+            {% else %}
+            <option>{{ op }}</option>
+        {% endif %}
+        {% endfor %}
+    </select><span class="notes">Pandas DataFrame</span></span></p>
+    <p><span>Hearing Type:</span><span class="right-selector"><select name="case_type">
+        {% for op in ['Initial Hearings', 'Appellate Hearings', 'All Hearings'] %}
+            {% if op == case_type %}
+                <option selected="selected">{{ op }}</option>
+            {% else %}
+                <option>{{ op }}</option>
+            {% endif %}
+        {% endfor %}
+    </select><span class="notes">SQL Query Filter</span></span></p>
+    <p><span>Pie Type:</span><span class="right-selector"><select name="pie_type">
+        {% for op in ['Solid', 'Donut', 'Ring'] %}
+            {% if op == pie_type %}
+                <option selected="selected">{{ op }}</option>
+            {% else %}
+                <option>{{ op }}</option>
+            {% endif %}
+        {% endfor %}
+    </select><span class="notes">Plotly Parameter</span></span></p>
+    <p><button type="submit" id="submit" name="submit">Generate Chart</button></p>
+    <span class="clear"></span>
+</form>
+
+<div id= "chart"></div>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script type="text/javascript">
+  var graphs = {{ graph_json | safe }};
+  Plotly.plot('chart', graphs, {});
+</script>
+<blockquote>
+    <p>A pie chart (or a circle chart) is a circular statistical graphic, which is
+    divided into slices to illustrate numerical proportion. In a pie chart, the
+    arc length of each slice (and consequently its central angle and area), is
+    proportional to the quantity it represents. While it is named for its
+    resemblance to a pie which has been sliced, there are variations on the way
+    it can be presented. The earliest known pie chart is generally credited to
+    William Playfair's Statistical Breviary of 1801.</p>
+    <p>Pie charts are very widely used in the business world and the mass media.
+    However, they have been criticized, and many experts recommend avoiding
+    them, as research has shown it is difficult to compare different
+    sections of a given pie chart, or to compare data across different pie charts.
+    Pie charts can be replaced in most cases by other plots such as the bar chart,
+    box plot, dot plot, etc.</p>
+    <cite><a href="https://en.wikipedia.org/wiki/Pie_chart">Wikipedia: Pie chart</a></cite>
+</blockquote>
+
+{% endblock %}
