@@ -1,5 +1,4 @@
 import os
-from typing import Union
 
 import pandas as pd
 import psycopg2

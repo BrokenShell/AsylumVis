@@ -159,6 +159,7 @@ def pies():
             width=700,
         )
         figure = go.Figure(data, layout)
+        figure.update_traces(textposition='outside', textfont_size=14)
         return render_template(
             "pies.html",
             options=columns,

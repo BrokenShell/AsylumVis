@@ -8,3 +8,6 @@
     font-size: 1.6em !important;
     fill: #aaaaaa !important;
 }
+#chart text {
+    fill: #aaaaaa !important;
+}
