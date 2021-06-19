@@ -2,7 +2,7 @@
   color-scheme: dark;
 }
 #form {
-    width: 430px;
+    width: 400px;
     margin: 0 0 40px 100px;
 }
 #form p {
@@ -22,6 +22,7 @@
     margin-left: 20px;
     color: #8888c6;
     opacity: 60%;
+    font-size: 0.8em;
 }
 #form .right-selector {
     float: right;
