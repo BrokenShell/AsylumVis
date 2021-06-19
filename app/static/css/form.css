@@ -3,7 +3,11 @@
 }
 #form {
     width: 400px;
-    margin: 0 0 40px 100px;
+    margin: 0px 0px 0 60px;
+    padding: 30px 400px 40px 40px;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
 }
 #form p {
     margin: 0 0 15px;

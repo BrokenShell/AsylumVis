@@ -50,7 +50,7 @@ def bars():
             plot_bgcolor="rgba(0,0,0,0)",
             colorway=px.colors.qualitative.Antique,
             height=600,
-            width=800,
+            width=840,
             barmode=bar_lookup[bar_type],
             yaxis={"tickformat": ",", "title": "People"},
             xaxis={'title': col_1_name}
@@ -108,7 +108,7 @@ def lines():
             plot_bgcolor="rgba(0,0,0,0)",
             colorway=px.colors.qualitative.Antique,
             height=600,
-            width=800,
+            width=840,
             yaxis={"tickformat": ",", "title": "Cumulative Number of People"},
         )
         figure = go.Figure(data, layout)
@@ -155,11 +155,15 @@ def pies():
             paper_bgcolor="rgba(0,0,0,0)",
             plot_bgcolor="rgba(0,0,0,0)",
             colorway=px.colors.qualitative.Antique,
-            height=700,
-            width=700,
+            height=640,
+            width=840,
         )
         figure = go.Figure(data, layout)
-        figure.update_traces(textposition='outside', textfont_size=14)
+        figure.update_traces(
+            textposition='outside',
+            textfont_size=14,
+            textinfo='percent+label',
+        )
         return render_template(
             "pies.html",
             options=columns,
@@ -173,7 +177,7 @@ def pies():
             "pies.html",
             options=columns,
             selector="outcome",
-            pie_type="Donut",
+            pie_type="Ring",
         )
 
 

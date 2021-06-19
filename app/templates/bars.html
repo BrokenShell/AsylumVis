@@ -3,6 +3,16 @@
 
 <h1 class="heading">Bar Chart</h1>
 
+<blockquote>
+    <p>The stacked bar chart (aka stacked bar graph) extends the standard bar
+    chart from looking at numeric values across one categorical variable
+    to two. Each bar in a standard bar chart is divided into a number of
+    sub-bars stacked end to end, each one corresponding to a level of the
+    second categorical variable.</p>
+    <cite><a href="https://chartio.com/learn/charts/stacked-bar-chart-complete-guide/">
+            A Complete Guide to Stacked Bar Charts</a></cite>
+</blockquote>
+
 <form id="form" method="post" action="{{ url_for('bars') }}">
     <h4>Chart Selectors</h4>
     <p><span>X-axis:</span><span class="right-selector"><select name="col_1">
@@ -53,15 +63,5 @@
   var graphs = {{ graph_json | safe }};
   Plotly.plot('chart', graphs, {});
 </script>
-
-<blockquote>
-    <p>The stacked bar chart (aka stacked bar graph) extends the standard bar
-    chart from looking at numeric values across one categorical variable
-    to two. Each bar in a standard bar chart is divided into a number of
-    sub-bars stacked end to end, each one corresponding to a level of the
-    second categorical variable.</p>
-    <cite><a href="https://chartio.com/learn/charts/stacked-bar-chart-complete-guide/">
-            A Complete Guide to Stacked Bar Charts</a></cite>
-</blockquote>
 
 {% endblock %}
