@@ -91,7 +91,7 @@ def lines():
         for column in df_cross.columns:
             df_cross[column] = list(itertools.accumulate(df_cross[column]))
         col_name = col.title().replace('_', ' ')
-        title = f"Cumulative {col_name} by Date"
+        title = f"{col_name} by Date"
         line_width_val = {"Medium": 2.5, "Thin": 1, "Thick": 6}[line_width]
         data = [
             go.Line(
