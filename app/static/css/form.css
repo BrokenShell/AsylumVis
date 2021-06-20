@@ -19,6 +19,7 @@
     cursor: pointer;
 }
 #form select {
+    width: 140px;
     cursor: pointer;
 }
 #form h4 {
@@ -34,7 +35,13 @@
     float: right;
 }
 #form button#submit {
-    padding: 1px 28px;
-    margin-top: 5px;
+    width: 142px;
+    padding: 1px 22px;
     cursor: pointer;
+    margin-right: 5px;
+}
+#form button#submit:hover {
+    color: #333;
+    background-color: #aaa;
+    border-radius: 3px;
 }
