@@ -55,7 +55,7 @@
     <span class="notes">AWS PostgreSQL</span></span></p>
 </form>
 
-<div id= "chart"></div>
+<div id="outer-chart"><div id="chart"></div></div>
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <script type="text/javascript">
   var graphs = {{ graph_json | safe }};
