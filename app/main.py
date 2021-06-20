@@ -1,3 +1,4 @@
+""" Asylum Visualizer for Human Rights First """
 import itertools
 import os
 
