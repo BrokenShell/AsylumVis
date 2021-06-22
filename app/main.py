@@ -21,10 +21,21 @@ def home():
 @APP.route("/bars/", methods=["GET", "POST"])
 def bars():
     columns = [
-        'gender', 'credible', 'outcome', 'judge_id', 'filed_in_one_year',
-        'applicant_language', 'country_of_origin', 'case_origin_state',
-        'case_origin_city', 'protected_grounds', 'type_of_violence',
-        'indigenous_group',
+        "panel_members",
+        "hearing_type",
+        "application_type",
+        "date",
+        "country_of_origin",
+        "outcome",
+        "case_origin_state",
+        "case_origin_city",
+        "protected_grounds",
+        "type_of_violence",
+        "gender",
+        "indigenous_group",
+        "applicant_language",
+        "credibility",
+        "check_for_one_year",
     ]
     if request.values:
         col_1, col_2, case_type, bar_type, *_ = request.values.values()
@@ -79,10 +90,21 @@ def bars():
 @APP.route("/lines/", methods=["GET", "POST"])
 def lines():
     columns = [
-        'gender', 'credible', 'outcome', 'judge_id', 'filed_in_one_year',
-        'applicant_language', 'country_of_origin', 'case_origin_state',
-        'case_origin_city', 'protected_grounds', 'type_of_violence',
-        'indigenous_group',
+        "panel_members",
+        "hearing_type",
+        "application_type",
+        "date",
+        "country_of_origin",
+        "outcome",
+        "case_origin_state",
+        "case_origin_city",
+        "protected_grounds",
+        "type_of_violence",
+        "gender",
+        "indigenous_group",
+        "applicant_language",
+        "credibility",
+        "check_for_one_year",
     ]
     if request.values:
         col, case_type, line_width, *_ = request.values.values()
@@ -132,10 +154,21 @@ def lines():
 @APP.route("/pies/", methods=["GET", "POST"])
 def pies():
     columns = [
-        'gender', 'credible', 'outcome', 'judge_id', 'filed_in_one_year',
-        'applicant_language', 'country_of_origin', 'case_origin_state',
-        'case_origin_city', 'protected_grounds', 'type_of_violence',
-        'indigenous_group',
+        "panel_members",
+        "hearing_type",
+        "application_type",
+        "date",
+        "country_of_origin",
+        "outcome",
+        "case_origin_state",
+        "case_origin_city",
+        "protected_grounds",
+        "type_of_violence",
+        "gender",
+        "indigenous_group",
+        "applicant_language",
+        "credibility",
+        "check_for_one_year",
     ]
     if request.values:
         col, case_type, pie_type, *_ = request.values.values()

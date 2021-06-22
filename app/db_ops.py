@@ -30,17 +30,11 @@ def db_query(sql_query) -> list:
     return results
 
 
-def outcome_counts(judge_id: int):
-    return {k: v for k, v in db_query(f"""SELECT outcome, COUNT( outcome ) 
-    FROM cases WHERE judge_id = {judge_id}
-    GROUP BY outcome;""")}
-
-
 def get_cases_df(case_type: str) -> pd.DataFrame:
     app_lookup = {
-        "Initial Hearings": "SELECT * FROM cases WHERE appellate = false",
-        "Appellate Hearings": "SELECT * FROM cases WHERE appellate = true",
-        "All Hearings": "SELECT * FROM cases",
+        "Initial Hearings": "SELECT * FROM ds_cases WHERE hearing_type = 'Initial'",
+        "Appellate Hearings": "SELECT * FROM ds_cases WHERE hearing_type = 'Appellate'",
+        "All Hearings": "SELECT * FROM ds_cases",
     }
     conn = psycopg2.connect(db_url)
     curs = conn.cursor()
