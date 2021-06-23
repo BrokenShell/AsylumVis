@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h1 class="heading">Table View</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">panel_members</th>
+            <th scope="col">hearing_type</th>
+            <th scope="col">application_type</th>
+            <th scope="col">date</th>
+            <th scope="col">country_of_origin</th>
+            <th scope="col">outcome</th>
+            <th scope="col">case_origin_state</th>
+            <th scope="col">case_origin_city</th>
+            <th scope="col">protected_grounds</th>
+            <th scope="col">type_of_violence</th>
+            <th scope="col">gender</th>
+            <th scope="col">indigenous_group</th>
+            <th scope="col">applicant_language</th>
+            <th scope="col">credibility</th>
+            <th scope="col">check_for_one_year</th>
+        </tr>
+    </thead>
+    {% for row in table %}
+    <tr>
+        {% for cell in row %}
+        <td>{{ cell }}</td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

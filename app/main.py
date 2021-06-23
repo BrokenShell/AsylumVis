@@ -7,7 +7,7 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 
-from app.db_ops import get_cases_df
+from app.db_ops import get_cases_df, get_table
 
 APP = Flask(__name__)
 db_url = os.getenv("DB_URL")
@@ -213,6 +213,14 @@ def pies():
             selector="outcome",
             pie_type="Ring",
         )
+
+
+@APP.route("/table/")
+def table():
+    return render_template(
+        "table.html",
+        table=get_table(),
+    )
 
 
 if __name__ == '__main__':

@@ -45,3 +45,13 @@
     background-color: #aaa;
     border-radius: 3px;
 }
+table {
+    text-align: left;
+    margin: 0 0 0 100px;
+}
+table th {
+    padding-right: 40px;
+}
+table td {
+    padding: 5px 10px 0 0;
+}

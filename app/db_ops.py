@@ -45,3 +45,7 @@ def get_cases_df(case_type: str) -> pd.DataFrame:
     curs.close()
     conn.close()
     return df
+
+
+def get_table():
+    return db_query("""SELECT * FROM ds_cases;""")
