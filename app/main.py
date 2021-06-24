@@ -1,6 +1,5 @@
 """ Asylum Visualizer for Human Rights First """
 import itertools
-import os
 
 from flask import Flask, render_template, request
 import pandas as pd
@@ -10,7 +9,6 @@ import plotly.graph_objects as go
 from app.db_ops import get_cases_df, get_table
 
 APP = Flask(__name__)
-db_url = os.getenv("DB_URL")
 
 
 @APP.route("/")
@@ -90,7 +88,7 @@ def lines():
         "protected_grounds",
         "type_of_violence",
     ]
-    col = request.values.get("col_1") or "gender"
+    col = request.values.get("col") or "gender"
     case_type = request.values.get("case_type") or "Initial Hearings"
     line_width = request.values.get("line_width") or "Thin"
     df = get_cases_df(case_type)
@@ -100,14 +98,16 @@ def lines():
         df_cross[column] = list(itertools.accumulate(df_cross[column]))
     col_name = col.title().replace('_', ' ')
     title = f"{col_name} by Date"
-    line_width_val = {"Medium": 2.5, "Thin": 1, "Thick": 6}[line_width]
-    data = [
-        go.Scatter(
-            x=df_cross.index, y=df_cross[col],
-            name=col,
-            line=dict(width=line_width_val)
-        ) for col in df_cross.columns
-    ]
+    line_width_val = {
+        "Medium": 2.5,
+        "Thin": 1,
+        "Thick": 6,
+    }[line_width]
+    data = [go.Scatter(
+        x=df_cross.index, y=df_cross[col],
+        name=col,
+        line={"width": line_width_val}
+    ) for col in df_cross.columns]
     layout = go.Layout(
         title=title,
         template="plotly_dark",
@@ -140,7 +140,7 @@ def pies():
         "protected_grounds",
         "type_of_violence",
     ]
-    col = request.values.get("col_1") or "outcome"
+    col = request.values.get("col") or "outcome"
     case_type = request.values.get("case_type") or "Initial Hearings"
     pie_type = request.values.get("pie_type") or "Ring"
     df = get_cases_df(case_type)[col].value_counts()
@@ -148,12 +148,12 @@ def pies():
     values = df.values
     col_name = col.title().replace('_', ' ')
     title = f"Percentage of People by {col_name}"
-    pie_lookup = {
+    hole = {
         "Solid": 0.0,
         "Donut": 0.5,
         "Ring": 0.8,
-    }
-    data = [go.Pie(labels=labels, values=values, hole=pie_lookup[pie_type])]
+    }[pie_type]
+    data = go.Pie(labels=labels, values=values, hole=hole)
     layout = go.Layout(
         title=title,
         template="plotly_dark",
