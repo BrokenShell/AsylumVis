@@ -102,10 +102,9 @@ def lines():
     title = f"{col_name} by Date"
     line_width_val = {"Medium": 2.5, "Thin": 1, "Thick": 6}[line_width]
     data = [
-        go.Line(
+        go.Scatter(
+            x=df_cross.index, y=df_cross[col],
             name=col,
-            x=df_cross.index,
-            y=df_cross[col],
             line=dict(width=line_width_val)
         ) for col in df_cross.columns
     ]
