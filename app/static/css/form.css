@@ -12,7 +12,8 @@
 #form span {
 }
 #form input {
-    margin: 0 0 0 10px;
+    width: 280px;
+    margin: 0 20px 0 0;
     cursor: pointer;
 }
 #form select {
@@ -32,7 +33,6 @@
     float: right;
 }
 #form button#submit {
-    width: 142px;
     padding: 1px 22px;
     cursor: pointer;
     margin-right: 5px;

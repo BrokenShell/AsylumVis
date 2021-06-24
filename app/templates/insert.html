@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h1 class="heading">Insert Data</h1>
+
+<form id="form" method="post" action="{{ url_for('insert') }}">
+    <h4>Insert file by UUID</h4>
+    <input type="text" name="uuid" />
+    <button type="submit" id="submit" name="submit">Insert</button>
+</form>
+
+{% endblock %}

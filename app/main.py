@@ -1,6 +1,7 @@
 """ Asylum Visualizer for Human Rights First """
 import itertools
 
+import requests as requests
 from flask import Flask, render_template, request
 import pandas as pd
 import plotly.express as px
@@ -24,14 +25,8 @@ def bars():
         "application_type",
         "country_of_origin",
         "case_origin_state",
-        # "case_origin_city",
         "protected_grounds",
         "type_of_violence",
-        # "panel_members",
-        # "indigenous_group",
-        # "applicant_language",
-        # "credibility",
-        # "check_for_one_year",
     ]
     col_1 = request.values.get("col_1") or "gender"
     col_2 = request.values.get("col_2") or "outcome"
@@ -184,6 +179,17 @@ def table():
     return render_template(
         "table.html",
         table=get_table(),
+    )
+
+
+@APP.route("/insert/", methods=["GET", "POST"])
+def insert():
+    uuid = request.values.get('uuid')
+    if uuid:
+        url = "http://labs35-hrf-asylum-dev.us-east-1.elasticbeanstalk.com/pdf-ocr"
+        requests.get(f"{url}/{uuid}")
+    return render_template(
+        "insert.html",
     )
 
 
