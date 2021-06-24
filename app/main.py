@@ -144,7 +144,6 @@ def pies():
     col = request.values.get("col_1") or "outcome"
     case_type = request.values.get("case_type") or "Initial Hearings"
     pie_type = request.values.get("pie_type") or "Ring"
-
     df = get_cases_df(case_type)[col].value_counts()
     labels = df.index
     values = df.values
