@@ -3,6 +3,33 @@
 
 <h1 class="heading">Table View</h1>
 
+<blockquote>
+    <p style="margin-bottom: 0">This page is intended for testing only.</p>
+</blockquote>
+
+<p style="margin-bottom: 40px">The input field below takes a file name or "UUID" of a PDF case file. It then
+    locates the file and processes it. Processing includes turning each page
+    into an image, running OCR on each page and then scraping the raw text for
+    valuable data. The data is then stored in a database and the table is
+    updated. During this process a small loading gif will be displayed. It will
+    be dismissed when the process is finished.</p>
+
+<h4>Test File UUIDs</h4>
+<ul>
+    <li>0563a753-aefd-4026-8d22-a24169132933</li>
+    <li>0333dc84-ea98-4be8-85dc-5c8f0410af20</li>
+    <li>00c76f3f-c4e2-49b8-9adf-c1044302627d</li>
+    <li>00ef179e-ad1d-474f-bd36-97b18aac452e</li>
+    <li>01881766-7409-43a9-a6bd-fa392c87cbe4</li>
+    <li>03d8f05d-f60a-4f31-b2cc-5a3da5c3c59b</li>
+</ul>
+
+<form id="form" method="post" action="{{ url_for('table') }}">
+    <h4>Insert file by UUID</h4>
+    <input type="text" name="uuid" />
+    <button type="submit" id="submit" name="submit">Insert</button><div id="loader" class="hidden"></div>
+</form>
+
 <table>
     <thead>
         <tr>
@@ -34,4 +61,10 @@
     {% endfor %}
 </table>
 
+<script>
+    function update() {
+        document.getElementById("loader").classList.remove("hidden");
+    }
+    document.getElementById("submit").addEventListener("click", update);
+</script>
 {% endblock %}

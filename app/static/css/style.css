@@ -87,7 +87,7 @@ header h1 a:link, header h1 a:active, header h1 a:visited, header h1 a:hover {
     margin-bottom: 10px;
 }
 blockquote {
-    margin: 40px 60px 0;
+    margin: 40px 60px 40px;
     background-color: #252525;
     border: 1px solid #000;
     padding: 20px;

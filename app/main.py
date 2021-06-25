@@ -174,22 +174,15 @@ def pies():
     )
 
 
-@APP.route("/table/")
+@APP.route("/table/", methods=["GET", "POST"])
 def table():
-    return render_template(
-        "table.html",
-        table=get_table(),
-    )
-
-
-@APP.route("/insert/", methods=["GET", "POST"])
-def insert():
     uuid = request.values.get('uuid')
     if uuid:
         url = "http://labs35-hrf-asylum-dev.us-east-1.elasticbeanstalk.com/pdf-ocr"
         requests.get(f"{url}/{uuid}")
     return render_template(
-        "insert.html",
+        "table.html",
+        table=get_table(),
     )
 
 

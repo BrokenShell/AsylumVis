@@ -47,5 +47,13 @@ def get_cases_df(case_type: str) -> pd.DataFrame:
     return df
 
 
-def get_table():
-    return db_query("""SELECT * FROM ds_cases;""")
+def get_table(columns=None):
+    if columns:
+        return db_query(f"""SELECT {', '.join(col for col in columns)} 
+        FROM ds_cases;""")
+    else:
+        return db_query(f"SELECT * FROM ds_cases;")
+
+
+if __name__ == '__main__':
+    print(get_table())

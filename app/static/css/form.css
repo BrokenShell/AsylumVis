@@ -5,6 +5,7 @@
     width: 410px;
     margin: 0px 0px 50px 60px;
     padding: 0px 0px 0px 40px;
+    position: relative;
 }
 #form p {
     margin: 0 0 15px;
@@ -41,6 +42,18 @@
     color: #333;
     background-color: #aaa;
     border-radius: 3px;
+}
+#form div#loader {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    background-repeat: no-repeat;
+    top: 37px;
+    background-image: url('/static/images/loading.gif');
+    left: 460px;
+}
+#form div#loader.hidden {
+    display: none;
 }
 table {
     text-align: left;
