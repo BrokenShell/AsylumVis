@@ -55,5 +55,9 @@ def get_table(columns=None):
         return db_query(f"SELECT * FROM ds_cases;")
 
 
+def delete_by_id(_id: str):
+    db_action(f"DELETE FROM ds_cases WHERE id = {_id}")
+
+
 if __name__ == '__main__':
     print(get_table())
