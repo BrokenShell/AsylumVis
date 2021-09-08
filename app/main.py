@@ -182,7 +182,7 @@ def table():
         requests.get(f"{url}/{uuid}")
     return render_template(
         "table.html",
-        table=get_table(),
+        table=get_cases_df("All Hearings").to_html(index=False),
     )
 
 
