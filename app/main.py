@@ -178,7 +178,7 @@ def pies():
 def table():
     uuid = request.values.get('uuid')
     if uuid:
-        url = "http://labs35-hrf-asylum-dev.us-east-1.elasticbeanstalk.com/pdf-ocr"
+        url = "http://hrf-asylum-ds-dev.us-east-1.elasticbeanstalk.com/pdf-ocr"
         requests.get(f"{url}/{uuid}")
     return render_template(
         "table.html",
